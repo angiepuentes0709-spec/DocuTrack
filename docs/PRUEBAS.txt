@@ -1,0 +1,14 @@
+OK: árbol vacío y entradas inválidas
+OK: duplicados y comparaciones
+OK: un archivo no admite hijos
+OK: eliminación hoja
+OK: eliminación de nodo con un hijo
+OK: eliminación raíz con sucesor profundo
+OK: eliminación raíz con sucesor inmediato
+OK: raíz con un hijo y árbol de un nodo
+OK: sucesor archivo se rechaza sin convertirlo ni perder datos
+OK: actualización conserva tipo y valida nombres
+OK: actualización fallida restaura estructura exacta
+OK: recorridos y altura conocidos
+OK: flujo completo del taller
+Resultado: 13 pruebas aprobadas.

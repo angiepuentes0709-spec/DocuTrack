@@ -1,0 +1,202 @@
+
+======================================================================
+  1. CONSTRUCCIÓN DEL ÁRBOL
+======================================================================
+[OK]        Insertado carpeta 'Documentos' como raíz (0 comparaciones)
+[OK]        Insertado carpeta 'Contratos' bajo 'Documentos' (1 comparaciones)
+[OK]        Insertado carpeta 'Proyectos' bajo 'Documentos' (1 comparaciones)
+[OK]        Insertado carpeta 'Actas' bajo 'Contratos' (2 comparaciones)
+[OK]        Insertado archivo 'Abril.pdf' bajo 'Actas' (3 comparaciones)
+[OK]        Insertado carpeta 'Acuerdos' bajo 'Actas' (3 comparaciones)
+[OK]        Insertado carpeta 'Cronograma' bajo 'Contratos' (2 comparaciones)
+[OK]        Insertado carpeta 'Facturas' bajo 'Proyectos' (2 comparaciones)
+[OK]        Insertado carpeta 'Recursos' bajo 'Proyectos' (2 comparaciones)
+[OK]        Insertado carpeta 'Enero' bajo 'Facturas' (3 comparaciones)
+[OK]        Insertado carpeta 'Informes' bajo 'Facturas' (3 comparaciones)
+[OK]        Insertado archivo 'Gastos.xlsx' bajo 'Informes' (4 comparaciones)
+[OK]        Insertado archivo 'Nomina.xlsx' bajo 'Informes' (4 comparaciones)
+[OK]        Insertado carpeta 'Seguridad' bajo 'Recursos' (3 comparaciones)
+[OK]        Insertado archivo 'Tutorial.mp4' bajo 'Seguridad' (4 comparaciones)
+
+--- Política de duplicados (comparación sin distinguir mayúsculas) ---
+[RECHAZADO] Duplicado: 'CONTRATOS' ya existe como 'Contratos' (2 comparaciones)
+
+--- Árbol inicial (I = izquierdo, D = derecho) ---
+Documentos [Carpeta]
+├── I: Contratos [Carpeta]
+│   ├── I: Actas [Carpeta]
+│   │   ├── I: Abril.pdf [Archivo]
+│   │   └── D: Acuerdos [Carpeta]
+│   └── D: Cronograma [Carpeta]
+└── D: Proyectos [Carpeta]
+    ├── I: Facturas [Carpeta]
+    │   ├── I: Enero [Carpeta]
+    │   └── D: Informes [Carpeta]
+    │       ├── I: Gastos.xlsx [Archivo]
+    │       └── D: Nomina.xlsx [Archivo]
+    └── D: Recursos [Carpeta]
+        └── D: Seguridad [Carpeta]
+            └── D: Tutorial.mp4 [Archivo]
+
+======================================================================
+  2. BÚSQUEDAS RÁPIDAS
+======================================================================
+
+--- Existentes en el subárbol izquierdo ---
+[HALLADO]    'Acuerdos' (Carpeta) - comparaciones: 4
+[HALLADO]    'Cronograma' (Carpeta) - comparaciones: 3
+
+--- Existentes en el subárbol derecho ---
+[HALLADO]    'Gastos.xlsx' (Archivo) - comparaciones: 5
+[HALLADO]    'Tutorial.mp4' (Archivo) - comparaciones: 5
+
+--- Inexistentes ---
+[NO HALLADO] 'Inexistente.docx' - comparaciones: 5
+[NO HALLADO] 'Zeta.pdf' - comparaciones: 5
+
+======================================================================
+  3. ACTUALIZACIONES SELECTIVAS
+======================================================================
+
+--- Actualización en hoja (archivo) ---
+[OK] Actualizado 'Nomina.xlsx' -> 'Nomina_2026.xlsx' (Eliminar + Insertar).
+[OK] Eliminado 'Nomina.xlsx'. Caso 1: nodo hoja (se desenlazó del padre).
+[OK] Insertado 'Nomina_2026.xlsx' bajo 'Informes' (4 comparaciones).
+Documentos [Carpeta]
+├── I: Contratos [Carpeta]
+│   ├── I: Actas [Carpeta]
+│   │   ├── I: Abril.pdf [Archivo]
+│   │   └── D: Acuerdos [Carpeta]
+│   └── D: Cronograma [Carpeta]
+└── D: Proyectos [Carpeta]
+    ├── I: Facturas [Carpeta]
+    │   ├── I: Enero [Carpeta]
+    │   └── D: Informes [Carpeta]
+    │       ├── I: Gastos.xlsx [Archivo]
+    │       └── D: Nomina_2026.xlsx [Archivo]
+    └── D: Recursos [Carpeta]
+        └── D: Seguridad [Carpeta]
+            └── D: Tutorial.mp4 [Archivo]
+
+--- Actualización en nodo con un solo hijo ---
+[OK] Actualizado 'Recursos' -> 'Respaldos' (Eliminar + Insertar).
+[OK] Eliminado 'Recursos'. Caso 2: un solo hijo (se reconectó el hijo con el padre).
+[OK] Insertado 'Respaldos' bajo 'Seguridad' (3 comparaciones).
+Documentos [Carpeta]
+├── I: Contratos [Carpeta]
+│   ├── I: Actas [Carpeta]
+│   │   ├── I: Abril.pdf [Archivo]
+│   │   └── D: Acuerdos [Carpeta]
+│   └── D: Cronograma [Carpeta]
+└── D: Proyectos [Carpeta]
+    ├── I: Facturas [Carpeta]
+    │   ├── I: Enero [Carpeta]
+    │   └── D: Informes [Carpeta]
+    │       ├── I: Gastos.xlsx [Archivo]
+    │       └── D: Nomina_2026.xlsx [Archivo]
+    └── D: Seguridad [Carpeta]
+        ├── I: Respaldos [Carpeta]
+        └── D: Tutorial.mp4 [Archivo]
+
+--- Actualización en la raíz ---
+[OK] Actualizado 'Documentos' -> 'Documentos_v2' (Eliminar + Insertar).
+[OK] Eliminado 'Documentos'. Caso 3: dos hijos (reemplazado por el sucesor inorden 'Enero').
+[OK] Insertado 'Documentos_v2' bajo 'Cronograma' (3 comparaciones).
+Enero [Carpeta]
+├── I: Contratos [Carpeta]
+│   ├── I: Actas [Carpeta]
+│   │   ├── I: Abril.pdf [Archivo]
+│   │   └── D: Acuerdos [Carpeta]
+│   └── D: Cronograma [Carpeta]
+│       └── D: Documentos_v2 [Carpeta]
+└── D: Proyectos [Carpeta]
+    ├── I: Facturas [Carpeta]
+    │   └── D: Informes [Carpeta]
+    │       ├── I: Gastos.xlsx [Archivo]
+    │       └── D: Nomina_2026.xlsx [Archivo]
+    └── D: Seguridad [Carpeta]
+        ├── I: Respaldos [Carpeta]
+        └── D: Tutorial.mp4 [Archivo]
+
+======================================================================
+  4. ELIMINACIONES SELECTIVAS
+======================================================================
+
+--- Eliminación de hoja ---
+[OK] Eliminado 'Gastos.xlsx'. Caso 1: nodo hoja (se desenlazó del padre).
+Enero [Carpeta]
+├── I: Contratos [Carpeta]
+│   ├── I: Actas [Carpeta]
+│   │   ├── I: Abril.pdf [Archivo]
+│   │   └── D: Acuerdos [Carpeta]
+│   └── D: Cronograma [Carpeta]
+│       └── D: Documentos_v2 [Carpeta]
+└── D: Proyectos [Carpeta]
+    ├── I: Facturas [Carpeta]
+    │   └── D: Informes [Carpeta]
+    │       └── D: Nomina_2026.xlsx [Archivo]
+    └── D: Seguridad [Carpeta]
+        ├── I: Respaldos [Carpeta]
+        └── D: Tutorial.mp4 [Archivo]
+
+--- Eliminación de nodo con un solo hijo ---
+[OK] Eliminado 'Facturas'. Caso 2: un solo hijo (se reconectó el hijo con el padre).
+Enero [Carpeta]
+├── I: Contratos [Carpeta]
+│   ├── I: Actas [Carpeta]
+│   │   ├── I: Abril.pdf [Archivo]
+│   │   └── D: Acuerdos [Carpeta]
+│   └── D: Cronograma [Carpeta]
+│       └── D: Documentos_v2 [Carpeta]
+└── D: Proyectos [Carpeta]
+    ├── I: Informes [Carpeta]
+    │   └── D: Nomina_2026.xlsx [Archivo]
+    └── D: Seguridad [Carpeta]
+        ├── I: Respaldos [Carpeta]
+        └── D: Tutorial.mp4 [Archivo]
+
+--- Eliminación de la raíz (dos hijos, se usa el sucesor) ---
+[OK] Eliminado 'Enero'. Caso 3: dos hijos (reemplazado por el sucesor inorden 'Informes').
+Informes [Carpeta]
+├── I: Contratos [Carpeta]
+│   ├── I: Actas [Carpeta]
+│   │   ├── I: Abril.pdf [Archivo]
+│   │   └── D: Acuerdos [Carpeta]
+│   └── D: Cronograma [Carpeta]
+│       └── D: Documentos_v2 [Carpeta]
+└── D: Proyectos [Carpeta]
+    ├── I: Nomina_2026.xlsx [Archivo]
+    └── D: Seguridad [Carpeta]
+        ├── I: Respaldos [Carpeta]
+        └── D: Tutorial.mp4 [Archivo]
+
+======================================================================
+  5. RECORRIDOS DE VERIFICACIÓN
+======================================================================
+Preorden   : Informes -> Contratos -> Actas -> Abril.pdf -> Acuerdos -> Cronograma -> Documentos_v2 -> Proyectos -> Nomina_2026.xlsx -> Seguridad -> Respaldos -> Tutorial.mp4
+Inorden    : Abril.pdf -> Actas -> Acuerdos -> Contratos -> Cronograma -> Documentos_v2 -> Informes -> Nomina_2026.xlsx -> Proyectos -> Respaldos -> Seguridad -> Tutorial.mp4
+Postorden  : Abril.pdf -> Acuerdos -> Actas -> Documentos_v2 -> Cronograma -> Contratos -> Nomina_2026.xlsx -> Respaldos -> Tutorial.mp4 -> Seguridad -> Proyectos -> Informes
+Por niveles:
+  Nivel 1: Informes
+  Nivel 2: Contratos, Proyectos
+  Nivel 3: Actas, Cronograma, Nomina_2026.xlsx, Seguridad
+  Nivel 4: Abril.pdf, Acuerdos, Documentos_v2, Respaldos, Tutorial.mp4
+Verificación: el inorden está en orden alfabético creciente -> el BST sigue válido.
+
+======================================================================
+  6. ESTADO FINAL
+======================================================================
+Informes [Carpeta]
+├── I: Contratos [Carpeta]
+│   ├── I: Actas [Carpeta]
+│   │   ├── I: Abril.pdf [Archivo]
+│   │   └── D: Acuerdos [Carpeta]
+│   └── D: Cronograma [Carpeta]
+│       └── D: Documentos_v2 [Carpeta]
+└── D: Proyectos [Carpeta]
+    ├── I: Nomina_2026.xlsx [Archivo]
+    └── D: Seguridad [Carpeta]
+        ├── I: Respaldos [Carpeta]
+        └── D: Tutorial.mp4 [Archivo]
+Altura del árbol: 4 niveles (12 nodos).
+Archivos siempre hoja: SÍ
